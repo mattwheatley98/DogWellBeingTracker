@@ -15,9 +15,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import com.example.dogwellbeingtracker.R
 import com.example.dogwellbeingtracker.domain.model.Bathroom
@@ -280,13 +282,18 @@ fun <T> EnterButton(
     Row {
         Button(onClick = {
             if (isError) {
-                Toast.makeText(context, R.string.a_required_field_is_empty, Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, R.string.a_required_field_is_empty, Toast.LENGTH_SHORT)
+                    .show()
             } else if (entryDate != DateTimeFormatter.ofPattern("MM/dd/yy")
                     .format(LocalDate.now())
             ) {
                 Toast.makeText(
                     context,
-                    "$dataTypeName ${context.getString(R.string.stored_in_comprehensive)} $dataTypeName ${context.getString(R.string.log)}",
+                    "$dataTypeName ${context.getString(R.string.stored_in_comprehensive)} $dataTypeName ${
+                        context.getString(
+                            R.string.log
+                        )
+                    }",
                     Toast.LENGTH_SHORT
                 ).show()
                 onEnterClick(detailsValue)
@@ -316,7 +323,11 @@ fun DailyBathroomLog(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.height(175.dp)
     ) {
-        Text(text = stringResource(R.string.bathroom_log))
+        Text(
+            text = stringResource(R.string.bathroom_log),
+            textDecoration = TextDecoration.Underline,
+            style = MaterialTheme.typography.titleMedium
+        )
         Row(modifier = Modifier.fillMaxWidth()) {
             LogColumnTitle(title = stringResource(id = R.string.date), modifier.weight(.25F))
             LogColumnTitle(title = stringResource(id = R.string.time), modifier.weight(.25F))
@@ -362,7 +373,11 @@ fun DailyFoodLog(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.height(175.dp)
     ) {
-        Text(text = stringResource(R.string.daily_food_log))
+        Text(
+            text = stringResource(R.string.daily_food_log),
+            textDecoration = TextDecoration.Underline,
+            style = MaterialTheme.typography.titleMedium
+        )
         Row(modifier = Modifier.fillMaxWidth()) {
             LogColumnTitle(title = stringResource(id = R.string.date), modifier.weight(.25F))
             LogColumnTitle(title = stringResource(id = R.string.calories), modifier.weight(.25F))
@@ -407,7 +422,11 @@ fun DailyWalkLog(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.height(175.dp)
     ) {
-        Text(text = stringResource(R.string.daily_walk_log))
+        Text(
+            text = stringResource(R.string.daily_walk_log),
+            textDecoration = TextDecoration.Underline,
+            style = MaterialTheme.typography.titleMedium
+        )
         Row(modifier = Modifier.fillMaxWidth()) {
             LogColumnTitle(title = stringResource(id = R.string.date), modifier.weight(.25F))
             LogColumnTitle(title = stringResource(R.string.start), modifier.weight(.25F))
@@ -439,6 +458,7 @@ fun LogColumnTitle(title: String, modifier: Modifier = Modifier) {
     Text(
         text = title,
         textAlign = TextAlign.Center,
+        fontWeight = FontWeight.SemiBold,
         modifier = modifier
             .padding(2.dp)
     )

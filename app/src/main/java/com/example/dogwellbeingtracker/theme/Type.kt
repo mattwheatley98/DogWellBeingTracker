@@ -16,6 +16,11 @@ val SofiaSans = FontFamily(
 
 // Set of Material typography styles to start with
 val Typography = Typography(
+    titleMedium = TextStyle(
+        fontFamily = SofiaSans,
+        fontWeight = FontWeight.Bold,
+        fontSize = 20.sp
+    ),
     bodyLarge = TextStyle(
         fontFamily = SofiaSans,
         fontWeight = FontWeight.Normal,

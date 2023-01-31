@@ -1,5 +1,7 @@
 package com.example.dogwellbeingtracker.presentation.bottom_bar_screens.walk_tracker
 
+import android.content.ContentValues
+import android.util.Log
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -38,7 +40,7 @@ fun WalkTrackerScreen(
     onComprehensiveLogClick: () -> Unit,
     viewModel: WalkTrackerViewModel = hiltViewModel()
 ) {
-    updateSelectedTab(WalkTab.currentTab)
+    updateSelectedTab(WalkTab.currentTab); Log.d(ContentValues.TAG, "${WalkTab.currentTab}")
     val coroutineScope = rememberCoroutineScope()
     val selectedDogUiState by selectedDogUiState.collectAsState()
     val walkListUiState by viewModel.walkListUiState.collectAsState()
@@ -115,11 +117,12 @@ private fun EnterWalk(
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = modifier.padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp)
+            verticalArrangement = Arrangement.spacedBy(6.dp)
         ) {
             Text(
                 text = "${stringResource(id = R.string.enter_in)} ${selectedDogUiState.selectedDog.name}${stringResource(id = R.string.s_walks_below)}",
                 textAlign = TextAlign.Center,
+                style = MaterialTheme.typography.titleMedium,
                 modifier = modifier.align((Alignment.CenterHorizontally))
             )
             Row {
@@ -168,6 +171,7 @@ private fun EnterWalk(
                     modifier = modifier.weight(.5F)
                 )
             }
+            Spacer(modifier = modifier)
             EnterButton(
                 detailsValue = walkDetails,
                 entryDate = walkDetails.date,

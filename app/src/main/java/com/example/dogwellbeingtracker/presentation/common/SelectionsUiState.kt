@@ -26,7 +26,7 @@ data class SelectedTabUiState(
 )
 
 /**
- * Updates the selected tab for the [BottomBarComposable].
+ * Updates the selected tab to be used for dynamic navigation.
  */
 fun updateSelectedTab(dogWellbeingTrackerScreen: DogWellbeingTrackerScreens) {
     _selectedTabUiState.value.selectedTab = dogWellbeingTrackerScreen

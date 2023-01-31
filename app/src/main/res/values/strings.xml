@@ -4,7 +4,7 @@
     <string name="name">Name</string>
     <string name="age">Age</string>
     <string name="breed">Breed</string>
-    <string name="weight">Weight</string>
+    <string name="weight">Weight (lbs)</string>
     <string name="daily_calories">Daily Calories</string>
     <string name="picture_not_selected">Picture not selected!</string>
     <string name="upload_a_picture_of_your">Upload a picture of your dog!</string>
@@ -53,7 +53,7 @@
     <string name="back_button">Back button</string>
     <string name="dropdown_menu">Dropdown menu</string>
     <string name="a_required_field_is_empty">A required field is empty!</string>
-    <string name="bathroom_log">Bathroom Log</string>
+    <string name="bathroom_log">Daily Bathroom Log</string>
     <string name="daily_food_log">Daily Food Log</string>
     <string name="daily_walk_log">Daily Walk Log</string>
     <string name="start">Start</string>

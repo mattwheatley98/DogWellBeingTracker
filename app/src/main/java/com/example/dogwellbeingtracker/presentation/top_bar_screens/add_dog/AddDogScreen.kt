@@ -108,7 +108,10 @@ private fun AddDogTextFields(
     onValueChange: (DogDetails) -> Unit,
     dogDetails: DogDetails,
 ) {
-    Text(text = stringResource(R.string.enter_in_your_dogs_information))
+    Text(
+        text = stringResource(R.string.enter_in_your_dogs_information),
+        style = MaterialTheme.typography.titleMedium
+    )
     Row {
         DogTextField(
             label = stringResource(R.string.name),
@@ -247,12 +250,13 @@ private fun AddDogButtons(
 @Composable
 private fun UploadedDogPicture(
     dogDetails: DogDetails,
-    modifier: Modifier = Modifier) {
+    modifier: Modifier = Modifier
+) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier
             .fillMaxWidth()
-            .padding(top = 20.dp)
+            .padding(top = 6.dp)
     ) {
         Card(
             modifier = modifier

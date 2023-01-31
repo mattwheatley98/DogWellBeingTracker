@@ -7,6 +7,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
@@ -51,6 +52,8 @@ fun DogSexField(
 ) {
     var expanded by remember { mutableStateOf(false) }
     val context = LocalContext.current
+    val focusManager = LocalFocusManager.current
+
     ExposedDropdownMenuBox(
         expanded = expanded,
         onExpandedChange = { expanded = !expanded },
@@ -68,7 +71,9 @@ fun DogSexField(
                 )
             },
             isError = isError,
-            modifier = Modifier.menuAnchor()
+            modifier = Modifier
+                .menuAnchor()
+                .fillMaxWidth()
         )
         ExposedDropdownMenu(
             expanded = expanded,
@@ -80,7 +85,7 @@ fun DogSexField(
                     },
                     onClick = {
                         expanded =
-                            !expanded; onValueChange(context.getString(dogSexItem.sex))
+                            !expanded; onValueChange(context.getString(dogSexItem.sex)); focusManager.clearFocus()
                     }
                 )
             }
@@ -95,6 +100,7 @@ private object DogSexItemData {
     data class DogSexItem(
         @StringRes val sex: Int
     )
+
     val dogSexItemList = listOf(
         DogSexItem(
             sex = R.string.female

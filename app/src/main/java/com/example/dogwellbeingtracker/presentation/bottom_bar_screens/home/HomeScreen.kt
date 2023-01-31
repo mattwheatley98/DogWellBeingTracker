@@ -1,5 +1,7 @@
 package com.example.dogwellbeingtracker.presentation.bottom_bar_screens.home
 
+import android.content.ContentValues.TAG
+import android.util.Log
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.MutableTransitionState
@@ -57,7 +59,7 @@ fun HomeScreen(
     walkTrackerViewModel: WalkTrackerViewModel = hiltViewModel(),
     viewModel: HomeViewModel = hiltViewModel(),
 ) {
-    updateSelectedTab(HomeTab.currentTab)
+    updateSelectedTab(HomeTab.currentTab); Log.d(TAG, "${HomeTab.currentTab}")
     val coroutineScope = rememberCoroutineScope()
     val dogListUiState by viewModel.dogListUiState.collectAsState()
     val selectedDogUiState by selectedDogUiState.collectAsState()
@@ -157,7 +159,7 @@ private fun CurrentDogs(
         Spacer(modifier = modifier.padding(4.dp))
         Row(horizontalArrangement = Arrangement.Center) {
             Text(
-                text = "${selectedDogUiState.selectedDog.name} ${stringResource(id = R.string.s_daily_summary)}",
+                text = "${selectedDogUiState.selectedDog.name}${stringResource(id = R.string.s_daily_summary)}",
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.primary
             )

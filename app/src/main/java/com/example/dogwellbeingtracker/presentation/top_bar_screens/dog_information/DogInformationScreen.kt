@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
+import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
@@ -24,6 +25,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
 import com.example.dogwellbeingtracker.R
@@ -40,6 +42,7 @@ import kotlinx.coroutines.launch
 fun DogInformationScreen(
     addDog: () -> Unit,
     viewModel: DogInformationViewModel = hiltViewModel(),
+    windowSize: WindowWidthSizeClass,
     ) {
     val coroutineScope = rememberCoroutineScope()
     val dogInformationUiState by viewModel.dogInformationUiState.collectAsState()
@@ -53,7 +56,8 @@ fun DogInformationScreen(
         convertDogToDogDetails = { viewModel.convertDogToEditDogDetails(it) },
         expandEditTextField = { coroutineScope.launch { viewModel.expandEditTextField(it) } },
         resetEditFieldExpansion = { coroutineScope.launch { viewModel.resetEditFieldExpansion() } },
-        addDog = addDog
+        addDog = addDog,
+        windowSize = windowSize
     )
 }
 
@@ -71,6 +75,7 @@ private fun DogInformationBody(
     expandEditTextField: (Dog) -> Unit,
     resetEditFieldExpansion: () -> Unit,
     editDogUiState: EditDogUiState,
+    windowSize: WindowWidthSizeClass,
     addDog: () -> Unit
 ) {
     if (dogList.isEmpty()) { //Already initialized... don't need the loading state
@@ -85,6 +90,7 @@ private fun DogInformationBody(
             expandEditTextField = expandEditTextField,
             resetEditFieldExpansion = resetEditFieldExpansion,
             editDogDetails = editDogUiState.editDogDetails,
+            windowSize = windowSize
             )
     }
 }
@@ -102,6 +108,7 @@ private fun DogInformationList(
     expandEditTextField: (Dog) -> Unit,
     resetEditFieldExpansion: () -> Unit,
     editDogDetails: EditDogDetails,
+    windowSize: WindowWidthSizeClass,
     modifier: Modifier = Modifier,
     ) {
     LazyColumn(
@@ -119,6 +126,7 @@ private fun DogInformationList(
                 expandEditTextField = expandEditTextField,
                 resetEditFieldExpansion = resetEditFieldExpansion,
                 editDogDetails = editDogDetails,
+                windowSize = windowSize
                 )
         }
         if (editDogDetails.sex == "") {
@@ -142,6 +150,7 @@ private fun DogInformationEntry(
     expandEditTextField: (Dog) -> Unit,
     resetEditFieldExpansion: () -> Unit,
     editDogDetails: EditDogDetails,
+    windowSize: WindowWidthSizeClass,
     modifier: Modifier = Modifier,
     ) {
     var expandedButtons by remember { mutableStateOf(false) }
@@ -178,41 +187,79 @@ private fun DogInformationEntry(
                     expandedButtons = !expandedButtons; resetEditFieldExpansion()
                 }
         ) {
-            Row {
-                AsyncImage(
-                    model = dog.picture,
-                    contentDescription = dog.name,
-                    contentScale = ContentScale.Crop,
-                    modifier = Modifier
-                        .size(100.dp)
-                        .padding(0.dp)
-                        .weight(.3F)
-                )
-                Column(
-                    verticalArrangement = Arrangement.Center,
-                    modifier = Modifier
-                        .height(100.dp)
-                        .padding(4.dp)
-                        .weight(.4F)
-                ) {
-                    Text(text = "${stringResource(id = R.string.name_colon)} ${dog.name}")
-                    Text(text = "${stringResource(id = R.string.age_colon)} ${dog.age}")
-                    Text(text = "${stringResource(id = R.string.breed_colon)} ${dog.breed}")
+            if (windowSize == WindowWidthSizeClass.Compact){
+                Row {
+                    AsyncImage(
+                        model = dog.picture,
+                        contentDescription = dog.name,
+                        contentScale = ContentScale.Crop,
+                        modifier = Modifier
+                            .size(100.dp)
+                            .padding(0.dp)
+                            .weight(.3F)
+                    )
+                    Column(
+                        verticalArrangement = Arrangement.Center,
+                        modifier = Modifier
+                            .height(100.dp)
+                            .padding(4.dp)
+                            .weight(.4F)
+                    ) {
+                        Text(text = "${stringResource(id = R.string.name_colon)} ${dog.name}")
+                        Text(text = "${stringResource(id = R.string.age_colon)} ${dog.age}")
+                        Text(text = "${stringResource(id = R.string.breed_colon)} ${dog.breed}")
+                    }
+                    Spacer(modifier = Modifier.padding(4.dp))
+                    Column(
+                        verticalArrangement = Arrangement.Center,
+                        modifier = Modifier
+                            .height(100.dp)
+                            .padding(4.dp)
+                            .weight(.4F)
+                    ) {
+                        Text(text = "${stringResource(id = R.string.weight_colon)} ${dog.weight}")
+                        Text(text = "${stringResource(id = R.string.calories_colon)} ${dog.dailyMaxCalories}")
+                        Text(text = "${stringResource(id = R.string.sex_colon)} ${dog.sex}")
+                    }
                 }
-                Spacer(modifier = Modifier.padding(4.dp))
-                Column(
-                    verticalArrangement = Arrangement.Center,
-                    modifier = Modifier
-                        .height(100.dp)
-                        .padding(4.dp)
-                        .weight(.4F)
-                ) {
-                    Text(text = "${stringResource(id = R.string.weight_colon)} ${dog.weight}")
-                    Text(text = "${stringResource(id = R.string.calories_colon)} ${dog.dailyMaxCalories}")
-                    Text(text = "${stringResource(id = R.string.sex_colon)} ${dog.sex}")
+            } else {
+                Row {
+                    AsyncImage(
+                        model = dog.picture,
+                        contentDescription = dog.name,
+                        contentScale = ContentScale.Crop,
+                        modifier = Modifier
+                            .size(200.dp)
+                            .padding(0.dp)
+                            .weight(.3F)
+                    )
+                    Column(
+                        verticalArrangement = Arrangement.Center,
+                        modifier = Modifier
+                            .height(200.dp)
+                            .padding(4.dp)
+                            .weight(.4F)
+                    ) {
+                        Text(text = "${stringResource(id = R.string.name_colon)} ${dog.name}", fontSize = 30.sp)
+                        Text(text = "${stringResource(id = R.string.age_colon)} ${dog.age}", fontSize = 30.sp)
+                        Text(text = "${stringResource(id = R.string.breed_colon)} ${dog.breed}", fontSize = 30.sp)
+                    }
+                    Spacer(modifier = Modifier.padding(4.dp))
+                    Column(
+                        verticalArrangement = Arrangement.Center,
+                        modifier = Modifier
+                            .height(200.dp)
+                            .padding(4.dp)
+                            .weight(.4F)
+                    ) {
+                        Text(text = "${stringResource(id = R.string.weight_colon)} ${dog.weight}", fontSize = 30.sp)
+                        Text(text = "${stringResource(id = R.string.calories_colon)} ${dog.dailyMaxCalories}", fontSize = 30.sp)
+                        Text(text = "${stringResource(id = R.string.sex_colon)} ${dog.sex}", fontSize = 30.sp)
+                    }
                 }
             }
             var deleteConfirmationRequired by rememberSaveable { mutableStateOf(false) }
+
             if (expandedButtons) {
                 Row(horizontalArrangement = Arrangement.Center) {
                     Button(
@@ -225,7 +272,7 @@ private fun DogInformationEntry(
                             .padding(start = 32.dp, top = 4.dp, end = 32.dp, bottom = 4.dp)
                             .fillMaxWidth()
                     ) {
-                        Text(text = "${stringResource(id = R.string.edit)} ${dog.name} ${stringResource(id = R.string.s_information)}")
+                        Text(text = "${stringResource(id = R.string.edit)} ${dog.name}${stringResource(id = R.string.s_information)}")
                     }
                 }
                 if (deleteConfirmationRequired) {

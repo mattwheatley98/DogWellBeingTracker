@@ -1,5 +1,7 @@
 package com.example.dogwellbeingtracker.presentation.bottom_bar_screens.food_tracker
 
+import android.content.ContentValues
+import android.util.Log
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -41,7 +43,7 @@ fun FoodTrackerScreen(
     onComprehensiveLogClick: () -> Unit,
     viewModel: FoodTrackerViewModel = hiltViewModel()
 ) {
-    updateSelectedTab(FoodTab.currentTab)
+    updateSelectedTab(FoodTab.currentTab); Log.d(ContentValues.TAG, "${FoodTab.currentTab}")
     val coroutineScope = rememberCoroutineScope()
     val selectedDogUiState by selectedDogUiState.collectAsState()
     val foodListUiState by viewModel.foodListUiState.collectAsState()
@@ -121,11 +123,12 @@ private fun EnterFood(
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = modifier.padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp)
+            verticalArrangement = Arrangement.spacedBy(6.dp)
         ) {
             Text(
                 text = "${stringResource(id = R.string.enter_in)} ${selectedDogUiState.selectedDog.name}${stringResource(id = R.string.s_meals_below)}",
                 textAlign = TextAlign.Center,
+                style = MaterialTheme.typography.titleMedium,
                 modifier = modifier.align((Alignment.CenterHorizontally))
             )
             Row {
@@ -182,6 +185,7 @@ private fun EnterFood(
                     modifier = modifier.weight(.5F)
                 )
             }
+            Spacer(modifier = modifier)
             EnterButton(
                 detailsValue = foodDetails,
                 entryDate = foodDetails.date,
