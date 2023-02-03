@@ -1,4 +1,4 @@
-# DogWellbeingTracker
+# Dog Well-Being Tracker
 Since embarking (pun intended) on my journey of becoming an Android developer, I've always wanted to create a dog-related app. After some brainstorming, I came up with the idea for a dog wellbeing tracker that also allowed me to practice new and important concepts I learned in Android development. Some of the concepts I wanted to practice were Android Room, dependency injection with Dagger-Hilt, cleaner and more reusable code (especially for composables), and clean architecture with an MVVM design pattern. After creating my Novi, Michigan Tour app, which, admittedly, doesn't have many use cases, I wanted to create something practical that myself and others can benefit from. 
 
 The main features of this app are as follows:
