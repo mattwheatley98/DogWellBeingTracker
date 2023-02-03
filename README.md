@@ -13,25 +13,25 @@ The main features of this app are as follows:
 ## Demonstrations
 Add Dog  | Screenshot
 ------------- | -------------
-<img src="https://user-images.githubusercontent.com/113391095/216479280-b7396186-1442-48d2-a6d7-fe610b66c6b1.gif" width = 400 height = 800>  |  <img src="https://user-images.githubusercontent.com/113391095/216480100-4ed2e1aa-0205-4c7d-85e7-c4d8644776d0.png" width = 400 height = 800>
+<img src="https://user-images.githubusercontent.com/113391095/216479280-b7396186-1442-48d2-a6d7-fe610b66c6b1.gif" width = 350 height = 700>  |  <img src="https://user-images.githubusercontent.com/113391095/216480100-4ed2e1aa-0205-4c7d-85e7-c4d8644776d0.png" width = 350 height = 700>
 
 Bathroom Tracker  | Screenshot
 ------------- | -------------
-<img src="https://user-images.githubusercontent.com/113391095/216479337-dc79ebf1-660f-40fc-8291-15bb77264d51.gif" width = 400 height = 800>  |  <img src="https://user-images.githubusercontent.com/113391095/216480170-c123ca7e-8584-4f8d-aa5b-5a53066d48e7.png" width = 400 height = 800>
+<img src="https://user-images.githubusercontent.com/113391095/216479337-dc79ebf1-660f-40fc-8291-15bb77264d51.gif" width = 350 height = 700>  |  <img src="https://user-images.githubusercontent.com/113391095/216480170-c123ca7e-8584-4f8d-aa5b-5a53066d48e7.png" width = 350 height = 700>
 
 Food Tracker  | Screenshot
 ------------- | -------------
-<img src="https://user-images.githubusercontent.com/113391095/216479397-366267cb-ab42-4326-ac5d-c6ea4ed3cd76.gif" width = 400 height = 800>  |  <img src="https://user-images.githubusercontent.com/113391095/216480309-bf7d9ea5-c3a1-428e-92ad-213b893c1d98.png" width = 400 height = 800>
+<img src="https://user-images.githubusercontent.com/113391095/216479397-366267cb-ab42-4326-ac5d-c6ea4ed3cd76.gif" width = 350 height = 700>  |  <img src="https://user-images.githubusercontent.com/113391095/216480309-bf7d9ea5-c3a1-428e-92ad-213b893c1d98.png" width = 350 height = 700>
 
 Walk Tracker  | Screenshot
 ------------- | -------------
-<img src="https://user-images.githubusercontent.com/113391095/216479425-661b7661-8662-4819-8d1c-534450a49b3e.gif" width = 400 height = 800>  |  <img src="https://user-images.githubusercontent.com/113391095/216480331-53cf6d0f-3b34-4874-af1e-0840ca177ffa.png" width = 400 height = 800>
+<img src="https://user-images.githubusercontent.com/113391095/216479425-661b7661-8662-4819-8d1c-534450a49b3e.gif" width = 350 height = 700>  |  <img src="https://user-images.githubusercontent.com/113391095/216480331-53cf6d0f-3b34-4874-af1e-0840ca177ffa.png" width = 350 height = 700>
 
 Dog Information  | Screenshot
 ------------- | -------------
-<img src="https://user-images.githubusercontent.com/113391095/216479361-e32ce1f2-ff2e-40b3-8e4e-1fcc8eac95cd.gif" width = 400 height = 800>  |  <img src="https://user-images.githubusercontent.com/113391095/216480210-2d1f14fb-8626-41f6-9959-8db6d6328313.png" width = 400 height = 800>
+<img src="https://user-images.githubusercontent.com/113391095/216479361-e32ce1f2-ff2e-40b3-8e4e-1fcc8eac95cd.gif" width = 350 height = 700>  |  <img src="https://user-images.githubusercontent.com/113391095/216480210-2d1f14fb-8626-41f6-9959-8db6d6328313.png" width = 350 height = 700>
 
 Multiple Dog Profiles  | Screenshot
 ------------- | -------------
-<img src="https://user-images.githubusercontent.com/113391095/216479312-0b10b3aa-9da4-4e6d-8860-9bb7b3d16c35.gif" width = 400 height = 800>  |  <img src="https://user-images.githubusercontent.com/113391095/216480137-d4f71e86-9eaf-40c1-b096-c470130a3ad4.png" width = 400 height = 800>
+<img src="https://user-images.githubusercontent.com/113391095/216479312-0b10b3aa-9da4-4e6d-8860-9bb7b3d16c35.gif" width = 350 height = 700>  |  <img src="https://user-images.githubusercontent.com/113391095/216480137-d4f71e86-9eaf-40c1-b096-c470130a3ad4.png" width = 350 height = 700>
 
